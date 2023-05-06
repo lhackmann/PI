@@ -1,5 +1,5 @@
 import express from 'express'
-import ContatoController from '../controllers/ProfissionalController.js'
+import ProfissionalController from '../controllers/ProfissionalController.js'
 
 const ProfissionalRouter = express.Router()
 
