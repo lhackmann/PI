@@ -15,6 +15,6 @@ export const getAll = () => {
 }
 
 export const dbProfisional = [
-    new Profissional(1,"Larissa","123.456.789","12345678","Terapeuta Ocupacional","123456"),
+    new Profissional(1,"Larissa","123.456.789","12345678","Terapeuta Ocupacional","123456","https://www.abcdt.org.br/wp-content/uploads/Assinatura-Digital-Dr-Helio.jpg"),
     
 ]

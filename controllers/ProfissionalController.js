@@ -1,6 +1,6 @@
-import { getAll } from "../models/Contato.js"
+import { getAll } from "../models/Profissional.js"
 
-class ContatoController {
+class ProfissionalController {
     static list(req,res){
         res.json(getAll())
     }
@@ -10,4 +10,4 @@ class ContatoController {
     }
 }
 
-export default ContatoController
+export default ProfissionalController
