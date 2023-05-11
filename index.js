@@ -3,6 +3,7 @@ import ProfissionalRouter from './routes/ProfissionalRoutes.js'
 import PacienteRouter from './routes/PacienteRoutes.js'
 import AgendaRouter from './routes/AgendaRoutes.js'
 import MedicacaoRouter from './routes/MedicacaoRoutes.js'
+import ProntuarioRouter from './routes/ProntuarioRoutes.js'
 
 const app = express()
 app.use(express.json())
@@ -14,6 +15,7 @@ app.use('/profissional',ProfissionalRouter)
 app.use('/pacientes',PacienteRouter)
 app.use('/agenda',AgendaRouter)
 app.use('/medicacao',MedicacaoRouter)
+app.use('/prontuario',ProntuarioRouter)
 
 app.listen(3000, () => {console.log('API Rodando na porta 3000!')})
 
