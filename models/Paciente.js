@@ -8,7 +8,37 @@ export class Paciente {
     }
 }
 
-export const getAll = () => {
+export const update = (id, paciente) => {
+    const pacienteToUpdate = findByPk(id)
+    if(!pacienteToUpdate) {
+        return false
+    }
+
+    const index = dbPaciente.indexOf(pacienteToUpdate)
+    dbPaciente[index] = paciente
+    return true
+}
+
+export const destroy = (id) => {
+    const paciente = findByPk(id)
+    if(!paciente) {
+        return false
+    }
+    const index = dbPaciente.indexOf(paciente)
+    dbPaciente.splice(index, 1)
+    return true
+}
+
+export const findByPk = (id) => {
+    return dbPaciente.find(paciente => paciente.id === id)
+}
+
+export const create = (paciente) => {
+    paciente.id = dbPaciente.length + 1
+    dbPaciente.push(paciente)
+}
+
+export const findAll = () => {
     return dbPaciente
 }
 
@@ -16,3 +46,8 @@ export const dbPaciente = [
     new Paciente(1,"Felipe","01/01/1990","12345678912","12345678"),
     new Paciente(2,"Laura","02/02/1990","21987654321","987654321")
 ]
+
+export const getAll = () => {
+    return dbPaciente
+}
+
