@@ -1,4 +1,4 @@
-import { Contato, findAll, create, findByPk, destroy, update } from "../models/Paciente.js"
+import { Paciente, findAll, create, findByPk, destroy, update } from "../models/Paciente.js"
 
 class pacienteController {
     static getPaciente(req, res) {
