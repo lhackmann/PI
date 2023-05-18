@@ -7,5 +7,6 @@ MedicacaoRouter.get('/',MedicacaoController.list)
 MedicacaoRouter.post('/',MedicacaoController.createMedicacao)
 MedicacaoRouter.get('/:id', MedicacaoController.getMedicacaoById)
 MedicacaoRouter.delete('/:id', MedicacaoController.destroyMedicaco)
+MedicacaoRouter.put('/:id', MedicacaoController.updateMedicacao)
 
 export default MedicacaoRouter

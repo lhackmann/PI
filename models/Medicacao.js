@@ -33,6 +33,16 @@ export const destroy = (idMedicacao) =>{
     return true
 }
 
+export const update = (idMedicacao, medicacao) =>{
+    const medicacaoToUpdate = findMedicacaoByPk(idMedicacao)
+    if(!medicacaoToUpdate) {
+        return false
+    }
+    const index = dbMedicacao.indexOf(medicacaoToUpdate)
+    dbMedicacao[index]= medicacao
+    return true
+}
+
 
 export const dbMedicacao = [
     new Medicacao(1,"Neosaldina","1g","1 comprimido", "12hrs", "7 dias","Leonardo", "Lucas"),
