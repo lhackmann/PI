@@ -1,11 +1,11 @@
 export class Medicacao {
-    constructor(idmedicacao, nomemedicacao, intensidade, quantidade, intervalotempo, tempoutilização, paciente, medico){
-        this.idmedicacao = idmedicacao
-        this.nomemedicacao = nomemedicacao
+    constructor(idMedicacao, nomeMedicacao, intensidade, quantidade, intervaloTempo, tempoUtilização, paciente, medico){
+        this.idMedicacao = idMedicacao
+        this.nomeMedicacao = nomeMedicacao
         this.intensidade = intensidade
         this.quantidade = quantidade
-        this.intervalotempo = intervalotempo
-        this.tempoutilização = tempoutilização
+        this.intervaloTempo = intervaloTempo
+        this.tempoUtilização = tempoUtilização
         this.paciente = paciente
         this.medico = medico
     }
@@ -14,6 +14,25 @@ export class Medicacao {
 export const getAll = () => {
     return dbMedicacao
 }
+
+export const create = (Medicacao) => {
+    dbMedicacao.push(Medicacao)
+}
+
+export const findMedicacaoByPk = (idMedicacao) =>{
+    return dbMedicacao.find(Medicacao => Medicacao.idMedicacao === idMedicacao)
+}
+
+export const destroy = (idMedicacao) =>{
+    const medicacao = findMedicacaoByPk(idMedicacao)
+    if(!medicacao){
+        return false
+    }
+    const index = dbMedicacao.indexOf(medicacao)
+    dbMedicacao.splice(index,1)
+    return true
+}
+
 
 export const dbMedicacao = [
     new Medicacao(1,"Neosaldina","1g","1 comprimido", "12hrs", "7 dias","Leonardo", "Lucas"),
