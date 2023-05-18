@@ -37,7 +37,7 @@ export const findByPk = (id) => {
 }
 
 export const create = (profissional) => {
-    ConstantSourceNode.id = dbProfisional.length + 1
+    profissional.id = dbProfisional.length + 1
     dbProfisional.push(profissional)
 }
 
