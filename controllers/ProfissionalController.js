@@ -1,4 +1,4 @@
-import { Profissional, findaAll, create, findbyPk, destroy, update } from "../models/Profissional.js"
+import { Profissional, findAll, create, findbyPk, destroy, update } from "../models/Profissional.js"
 class ProfissionalController {
     static getProfissional(req,res){
         res.json(findAll())
