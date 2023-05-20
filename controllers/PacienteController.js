@@ -1,25 +1,27 @@
 import { Paciente, findAll, create, findByPk, destroy, update } from "../models/Paciente.js"
 
-class pacienteController {
-    static getPaciente(req, res) {
-        res.json(findAll())
+class PacienteController {
+    static async list(req,res){
+        const pacientes = await Paciente.findAll()
+        res.json(pacientes)
     }
 
-static createPaciente(req, res) {
+static async createPaciente(req, res) {
         const {prontuario, nome,dataNascimento,cpf,telefone} = req.body
         if(!prontuario || !nome || !dataNascimento || !cpf || !telefone ) {
             res.status(400).json({ error: 'Prontuario, nome, dataNascimento, cpf, telefone são obrigatórios' })
             return
         }
 
-        const paciente = new Paciente(prontuario, nome,dataNascimento,cpf,telefone)
+        const createdPaciente = await Paciente.create({prontuario, nome,dataNascimento,cpf,telefone})
         create(paciente)
-        res.json(paciente)
+        res.status(201).json(createdPaciente)
     }
 
-static getPacienteById(req, res) {
+static async getPacienteById(req, res) {
     const id = parseInt(req.params.id)
-    const paciente = findByPk(id)
+    const paciente = await Paciente.findByPk(id)
+
     if(!paciente) {
         res.status(404).json({ error: 'Paciente não encontrado' })
         return
@@ -27,20 +29,20 @@ static getPacienteById(req, res) {
     res.json(paciente)
 }
 
-static destroyPaciente(req, res) {
+static async destroyPaciente(req, res) {
     const id = parseInt(req.params.id)
-    const paciente = findByPk(id)
+    const paciente = await Paciente.findByPk(id)
     if(!paciente) {
         res.status(404).json({ error: 'Paciente não encontrado' })
         return
     }
-    destroy(id)
+    await Paciente.destroy({where: {id: paciente.id}})
     res.json({ message: 'Paciente removido com sucesso' })
 }
 
-static updatePaciente(req, res) {
+static async updatePaciente(req, res) {
     const id = parseInt(req.params.id)
-    const paciente = findByPk(id)
+    const paciente = await Paciente.findByPk(id)
     if(!paciente) {
         res.status(404).json({ error: 'Paciente não encontrado' })
         return
@@ -58,8 +60,8 @@ static updatePaciente(req, res) {
     paciente.cpf = cpf
     paciente.telefone = telefone
 
-    update(id, paciente)
-    res.json(paciente)
+    const updatedPaciente = await Paciente.update({prontuario, nome,dataNascimento,cpf,telefone},{where: {id: paciente.id}})
+        res.json(updatedPaciente)
 }
 }
 
