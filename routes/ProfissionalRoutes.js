@@ -3,7 +3,7 @@ import ProfissionalController from '../controllers/ProfissionalController.js'
 
 const ProfissionalRouter = express.Router();
 
-ProfissionalRouter.get('/',ProfissionalController.getProfissional)
+ProfissionalRouter.get('/',ProfissionalController.list)
 ProfissionalRouter.post('/',ProfissionalController.createProfissional)
 ProfissionalRouter.get('/:id',ProfissionalController.getProfissionalById)
 ProfissionalRouter.delete('/:id',ProfissionalController.destroyProfissional)

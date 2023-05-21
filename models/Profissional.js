@@ -1,4 +1,41 @@
-export class Profissional {
+import { Sequelize } from "sequelize"
+import db from "../db.js"
+
+const Profissional = db.define('profissional',{
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    nome: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    CPF: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    RG: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    profissao: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    CCR: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    assinatura: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+})
+
+export default Profissional
+
+/*export class Profissional {
     constructor(id, nome, CPF, RG, profissao, CCR, assinatura){
         this.id = id
         this.nome = nome
@@ -48,4 +85,4 @@ export const findAll = () => {
 export const dbProfisional = [
     new Profissional(1,"Larissa","123.456.789","12345678","Terapeuta Ocupacional","123456","https://www.abcdt.org.br/wp-content/uploads/Assinatura-Digital-Dr-Helio.jpg"),
     
-]
+]*/
