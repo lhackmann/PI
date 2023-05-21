@@ -8,6 +8,8 @@ import ProntuarioRouter from './routes/ProntuarioRoutes.js'
 const app = express()
 app.use(express.json())
 
+db.sync(() => console.log('Banco de dados preparado'))
+
 // npm i --save-dev nodemon
 // "dev": "npx nodemon index.js"
 
@@ -17,5 +19,6 @@ app.use('/agenda',AgendaRouter)
 app.use('/medicacao',MedicacaoRouter)
 app.use('/prontuario',ProntuarioRouter)
 
+const port = process.env.PORT || 3000
 app.listen(3000, () => {console.log('API Rodando na porta 3000!')})
 
