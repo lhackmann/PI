@@ -1,4 +1,33 @@
-export class Agenda {
+import { Sequelize } from "sequelize"
+import db from "../db.js"
+
+const Agenda = db.define('agenda',{
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    paciente: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    profissional: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    data: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    hora: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+})
+
+export default Agenda
+
+/*export class Agenda {
     constructor(paciente, profissional,data,hora){
         this.paciente = paciente
         this.profissional = profissional
@@ -44,4 +73,4 @@ export const findAll = () => {
 
 export const dbAgenda = [
     new Agenda("Ana","Larissa","05/07/2023","08:30"),
-    ]
+    ]*/
