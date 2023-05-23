@@ -1,4 +1,4 @@
-import { Paciente, findAll, create, findByPk, destroy, update } from "../models/Paciente.js"
+import Paciente from "../models/Paciente.js"
 
 class PacienteController {
     static async list(req,res){

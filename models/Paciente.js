@@ -1,4 +1,33 @@
-export class Paciente {
+import { Sequelize } from "sequelize"
+import db from "../db.js"
+
+const Paciente = db.define('paciente',{
+    prontuario: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    nome: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    dataNascimento: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    cpf: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    telefone: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+})
+
+export default Contato
+
+/*export class Paciente {
     constructor(prontuario, nome,dataNascimento,cpf,telefone){
         this.prontuario = prontuario
         this.nome = nome
@@ -49,5 +78,4 @@ export const dbPaciente = [
 
 export const getAll = () => {
     return dbPaciente
-}
-
+}*/
