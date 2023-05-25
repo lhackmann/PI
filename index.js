@@ -4,6 +4,7 @@ import PacienteRouter from './routes/PacienteRoutes.js'
 import AgendaRouter from './routes/AgendaRoutes.js'
 import MedicacaoRouter from './routes/MedicacaoRoutes.js'
 import ProntuarioRouter from './routes/ProntuarioRoutes.js'
+import db from '.db.js'
 
 const app = express()
 app.use(express.json())
