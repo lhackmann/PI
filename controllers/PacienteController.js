@@ -14,7 +14,6 @@ static async createPaciente(req, res) {
         }
 
         const createdPaciente = await Paciente.create({prontuario, nome,dataNascimento,cpf,telefone})
-        create(paciente)
         res.status(201).json(createdPaciente)
     }
 
@@ -54,11 +53,11 @@ static async updatePaciente(req, res) {
         return
     }
 
-    paciente.prontuario = prontuario
+   /*paciente.prontuario = prontuario
     paciente.nome = nome
     paciente.dataNascimento = dataNascimento
     paciente.cpf = cpf
-    paciente.telefone = telefone
+    paciente.telefone = telefone*/
 
     const updatedPaciente = await Paciente.update({prontuario, nome,dataNascimento,cpf,telefone},{where: {id: paciente.id}})
         res.json(updatedPaciente)

@@ -35,7 +35,7 @@ class AgendaController {
             res.status(404).json({error: 'Agendamento não encontrado!'})
             return
         }
-        await Agenda.destroy({where: {id: contato.id}})
+        await Agenda.destroy({where: {id: agenda.id}})
         res.json({ message: 'Agendamento removido com sucesso!'})
     }
 

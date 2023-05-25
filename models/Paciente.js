@@ -25,7 +25,7 @@ const Paciente = db.define('paciente',{
     }
 })
 
-export default Contato
+export default Paciente
 
 /*export class Paciente {
     constructor(prontuario, nome,dataNascimento,cpf,telefone){
