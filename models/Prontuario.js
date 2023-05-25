@@ -40,6 +40,6 @@ export const findAll = () => {
     return dbProntuario
 }
 
-export const dbProfisional = [
-    new Profissional("01","Ana"),
+export const dbProntuario = [
+    new Prontuario("01","Ana"),
     ]
