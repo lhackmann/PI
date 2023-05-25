@@ -3,10 +3,10 @@ import PacienteController from '../controllers/PacienteController.js'
 
 const PacienteRouter = express.Router()
 
-Pacienterouter.get('/', PacienteController.list)
-Pacienterouter.post('/', PacienteController.createPaciente)
-Pacienterouter.get('/:id', PacienteController.getPacienteById)
-Pacienterouter.delete('/:id', PacienteController.destroyPaciente)
-Pacienterouter.put('/:id', PacienteController.updatePaciente)
+PacienteRouter.get('/', PacienteController.list)
+PacienteRouter.post('/', PacienteController.createPaciente)
+PacienteRouter.get('/:id', PacienteController.getPacienteById)
+PacienteRouter.delete('/:id', PacienteController.destroyPaciente)
+PacienteRouter.put('/:id', PacienteController.updatePaciente)
 
 export default PacienteRouter
