@@ -1,4 +1,4 @@
-import { Medicacao } from "../models/Medicacao.js"
+import  Medicacao from "../models/Medicacao.js"
 
 class MedicacaoController {
     static async list(req,res){
