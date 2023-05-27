@@ -3,7 +3,7 @@ import ProntuarioController from '../controllers/ProntuarioController.js'
 
 const ProntuarioRouter = express.Router()
 
-ProntuarioRouter.get('/',ProntuarioController.getProntuario)
+ProntuarioRouter.get('/',ProntuarioController.list)
 ProntuarioRouter.post('/',ProntuarioController.createProntuario)
 ProntuarioRouter.get('/:id',ProntuarioController.getProntuarioById)
 ProntuarioRouter.delete('/:id',ProntuarioController.destroyProntuario)
