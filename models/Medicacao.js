@@ -1,4 +1,45 @@
-export class Medicacao {
+import sequelize, {Sequelize} from "sequelize"
+import db from "../db.js"
+
+const Medicacao = db.define('medicacao',{
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    nomeMedicacao: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    intensidade: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    quantidade: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    intervaloTempo: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    tempoUtilização: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    paciente: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    medico: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+})
+
+export default Medicacao
+
+/*export class Medicacao {
     constructor(idMedicacao, nomeMedicacao, intensidade, quantidade, intervaloTempo, tempoUtilização, paciente, medico){
         this.idMedicacao = idMedicacao
         this.nomeMedicacao = nomeMedicacao
@@ -47,4 +88,4 @@ export const update = (idMedicacao, medicacao) =>{
 export const dbMedicacao = [
     new Medicacao(1,"Neosaldina","1g","1 comprimido", "12hrs", "7 dias","Leonardo", "Lucas"),
     new Medicacao(2,"Paracetamol","750mg", "1 comprimido","08hrs","4 dias","Eliane","Leandro")
-]
+]*/
