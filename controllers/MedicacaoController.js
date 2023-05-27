@@ -1,6 +1,65 @@
-import { getAll,create, findMedicacaoByPk, destroy } from "../models/Medicacao.js"
+import { Medicacao } from "../models/Medicacao.js"
 
 class MedicacaoController {
+    static async list(req,res){
+        const medicacao = await Medicacao.findAll()
+        res.json(medicacao)
+    }
+
+    static async getMedicacaoById(req, res){
+        const id = parseInt(req.params.id)
+        const medicacao = await Medicacao.findByPk(id)
+
+        if(!medicacao){
+            res.status(404).json({ error: 'Medicacao não encontrado!'})
+            return
+        }
+        res.json(medicacao)
+    }
+
+    static async destroyMedicacao(req, res) {
+        const id = parseInt(req.params.id)
+        const medicacao = await findByPk(id)
+        if(!medicacao) {
+            res.status(404).json({error: 'Medicacao não encontrado!'})
+            return
+        }
+        await Medicacao.destroy({where: {id: medicacao.id}})
+        res.json({ message: 'Medicacao removido com sucesso!'})
+    }
+
+    static async createMedicacao(req,res){
+        const { idMedicacao, nomeMedicacao, intensidade,quantidade, intervaloTempo, tempoUtilizacao, paciente, medico } = req.body
+        if(!idMedicacao || !nomeMedicacao || !intensidade || !quantidade || !intervaloTempo || !tempoUtilizacao || !paciente || !medico) {
+            res.status(400).json({ error: 'Todos os campos são obrigatórios!!!'})
+            return
+        }
+        const createdMedicacao = await Medicacao.create({idMedicacao, nomeMedicacao, intensidade, quantidade, intervaloTempo, tempoUtilizacao, paciente, medico})
+        res.status(201).json(createdMedicacao)
+
+    }
+
+    static async updateMedicacao(req, res) {
+        const id = parseInt(req.params.id)
+        const medicacao = await Medicacao.findByPk(id)
+        if(!medicacao) {
+            req.status(404).json({ error: 'Medicacao não encontrado!'})
+            return
+        }
+
+        const { idMedicacao, nomeMedicacao, intensidade,quantidade, intervaloTempo, tempoUtilizacao, paciente, medico } = req.body
+        if(!idMedicacao || !nomeMedicacao || !intensidade || !quantidade || !intervaloTempo || !tempoUtilizacao || !paciente || !medico) {
+            res.status(400).json({ error: 'Todos os campos são obrigatórios!!!'})
+            return
+    }
+    const updatedMedicacao = await Medicacao.update({idMedicacao,nomeMedicacao,intensidade,quantidade,intervaloTempo,tempoUtilizacao, paciente, medico},{where: {id: medicacao.id}})
+    res.json(updatedMedicacao)
+   }
+}
+
+export default MedicacaoController
+
+/*class MedicacaoController {
     static list(req,res){
         res.json(getAll())
     }
@@ -68,6 +127,4 @@ class MedicacaoController {
         res.json(medicacao)
     }
 
-}
-
-export default MedicacaoController
+}*/
