@@ -5,9 +5,11 @@ import AgendaRouter from './routes/AgendaRoutes.js'
 import MedicacaoRouter from './routes/MedicacaoRoutes.js'
 import ProntuarioRouter from './routes/ProntuarioRoutes.js'
 import db from './db.js'
+import cors from 'cors' // <-
 
 const app = express()
 app.use(express.json())
+app.use(cors()) // <-
 
 db.sync(() => console.log('Banco de dados preparado'))
 

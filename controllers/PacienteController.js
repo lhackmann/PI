@@ -35,7 +35,7 @@ static async destroyPaciente(req, res) {
         res.status(404).json({ error: 'Paciente não encontrado' })
         return
     }
-    await Paciente.destroy({where: {id: paciente.id}})
+    await Paciente.destroy({where: {prontuario: paciente.prontuario}})
     res.json({ message: 'Paciente removido com sucesso' })
 }
 
