@@ -6,6 +6,17 @@ class ProfissionalController {
         res.json(profissional)
     }
 
+    static async createProfissional(req,res){
+        const {id, nome, cpf, rg, profissao, ccr, assinatura } = req.body
+        if(!id, !nome || !cpf || !rg || !profissao || !ccr || !assinatura) {
+            res.status(400).json({ error: 'ID, Nome, cpf, rg, profissão, ccr e assinatura são obrigatórios!!!'})
+            return
+        }
+        const createdProfissional = await Profissional.create({id, nome, cpf, rg, profissao, ccr, assinatura})
+        res.status(201).json(createdProfissional)
+
+    }
+
     static async getProfissionalById(req, res){
         const id = parseInt(req.params.id)
         const profissional = await Profissional.findByPk(id)
@@ -19,7 +30,7 @@ class ProfissionalController {
 
     static async destroyProfissional(req, res) {
         const id = parseInt(req.params.id)
-        const profissional = await findByPk(id)
+        const profissional = await Profissional.findByPk(id)
         if(!profissional) {
             res.status(404).json({error: 'Profissional não encontrado!'})
             return
@@ -27,18 +38,7 @@ class ProfissionalController {
         await Profissional.destroy({where: {id: profissional.id}})
         res.json({ message: 'Profissional removido com sucesso!'})
     }
-
-    static async createProfissional(req,res){
-        const {id, nome, cpf, rg, profissao, ccr, assinatura } = req.body
-        if(!id, !nome || !cpf || !rg || !profissao || !ccr || !assinatura) {
-            res.status(400).json({ error: 'Nome, cpf, rg, profissão, ccr e assinatura são obrigatórios!!!'})
-            return
-        }
-        const createdProfissional = await Profissional.create({id, nome,cpf,rg,profissao,ccr,assinatura})
-        res.status(201).json(createdProfissional)
-
-    }
-
+    
     static async updateProfissional(req, res) {
         const id = parseInt(req.params.id)
         const profissional = await Profissional.findByPk(id)
