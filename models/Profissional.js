@@ -11,11 +11,11 @@ const Profissional = db.define('profissional',{
         type: Sequelize.STRING,
         allowNull: false
     },
-    CPF: {
+    cpf: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    RG: {
+    rg: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
@@ -23,7 +23,7 @@ const Profissional = db.define('profissional',{
         type: Sequelize.STRING,
         allowNull: false
     },
-    CCR: {
+    ccr: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
@@ -36,13 +36,13 @@ const Profissional = db.define('profissional',{
 export default Profissional
 
 /*export class Profissional {
-    constructor(id, nome, CPF, RG, profissao, CCR, assinatura){
+    constructor(id, nome, cpf, rg, profissao, ccr, assinatura){
         this.id = id
         this.nome = nome
-        this.CPF = CPF
-        this.RG = RG
+        this.cpf = cpf
+        this.rg = rg
         this.profissao = profissao
-        this.CCR = CCR
+        this.ccr = ccr
         this.assinatura = assinatura
     }
 }

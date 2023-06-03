@@ -29,12 +29,12 @@ class ProfissionalController {
     }
 
     static async createProfissional(req,res){
-        const { nome, CPF, RG, profissao, CCR, assinatura } = req.body
-        if(!nome || !CPF || !RG || !profissao || !CCR || !assinatura) {
-            res.status(400).json({ error: 'Nome, CPF, RG, profissão, CCR e assinatura são obrigatórios!!!'})
+        const { nome, cpf, rg, profissao, ccr, assinatura } = req.body
+        if(!nome || !cpf || !rg || !profissao || !ccr || !assinatura) {
+            res.status(400).json({ error: 'Nome, cpf, rg, profissão, ccr e assinatura são obrigatórios!!!'})
             return
         }
-        const createdProfissional = await Profissional.create({nome,CPF,RG,profissao,CCR,assinatura})
+        const createdProfissional = await Profissional.create({nome,cpf,rg,profissao,ccr,assinatura})
         res.status(201).json(createdProfissional)
 
     }
@@ -47,12 +47,12 @@ class ProfissionalController {
             return
         }
 
-        const { nome, CPF, RG, profissao, CCR, assinatura } = req.body
-        if(!nome || !CPF || !RG || !profissao || !CCR || !assinatura) {
-            res.status(400).json({ error: 'Nome, CPF, RG, profissão, CCR e assinatura são obrigatórios!!!'})
+        const { nome, cpf, rg, profissao, ccr, assinatura } = req.body
+        if(!nome || !cpf || !rg || !profissao || !ccr || !assinatura) {
+            res.status(400).json({ error: 'Nome, cpf, rg, profissão, ccr e assinatura são obrigatórios!!!'})
             return
     }
-    const updatedProfissional = await Profissional.update({nome,CPF,RG,profissao,CCR,assinatura},{where: {id: profissional.id}})
+    const updatedProfissional = await Profissional.update({nome,cpf,rg,profissao,ccr,assinatura},{where: {id: profissional.id}})
     res.json(updatedProfissional)
    }
 }
