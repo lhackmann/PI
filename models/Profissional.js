@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize"
 import db from "../db.js"
 
 const Profissional = db.define('profissional',{
-    id: {
+    idProfissional: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
